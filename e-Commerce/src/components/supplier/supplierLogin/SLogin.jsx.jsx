@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "./formCss.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const SLogin = () => {
   const [form, setForm] = useState({});
+  const navigate = useNavigate();
 
   const updateForm = (updates) => {
     setForm((prevForm) => ({ ...prevForm, ...updates }));
@@ -13,6 +14,8 @@ const SLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Login Form Data:", form);
+    // Here you can add your login logic
+    navigate('/ServicePortal'); // Navigate to the desired route after login
   };
 
   return (
@@ -44,7 +47,6 @@ const SLogin = () => {
         <button type="submit" className="btn-signin">
           Sign In
         </button>
-        {/* Other buttons */}
       </form>
       <p>
         New user?{" "}
